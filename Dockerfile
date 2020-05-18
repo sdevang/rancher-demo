@@ -1,8 +1,10 @@
 FROM gcr.io/bitnami-containers/minideb-extras:jessie-r14
 
-MAINTAINER Bitnami <containers@bitnami.com>
+MAINTAINER Dev Shah (devang@gocloudify.com)
 
 COPY app-code/http-sample /app/http-sample
+
+RUN chmod +x /app/http-sample
 
 USER bitnami
 

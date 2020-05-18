@@ -4,13 +4,13 @@
 replicaCount: 1
 
 image:
-  repository: mdhont/go-app 
+  repository: sdevang/go-k8s 
   tag: 0.1.0
   pullPolicy: IfNotPresent
 
 service:
   name: go-app
-  type: NodePort
+  type: ClusterIP
   externalPort: 3000
   internalPort: 3000
 
@@ -22,4 +22,11 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  paths: 
+    - /
+  hosts:
+    - awesome-app.shared.webapp.soenergy.co
